@@ -1,0 +1,253 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/monokai.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <h3>CssinJs vs Css</h3>
+            <img src="css/image/gameOfThrones.jpg">
+        </section>
+        <section>
+            <h3>Qui je suis ?</h3>
+            <div style="display: flex;">
+                <img src="css/image/profil.jpeg">
+                <div style="margin: .25em; text-align: start">
+                    <p>
+                        Développeur Java / Js de + de 15 ans d'expériences.
+                    </p>
+                    <p>
+                        Référent technique à la Mutuelle de Poitiers Assurances.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h3>Le coté obscure </h3>
+            <ul>
+                <li>Vous êtes en 2020 développeur FullStack. Vous utilisez des composants Js pour créer vos interfaces
+                    et appeler vos apis.
+                </li>
+                <li>Par contre, il existe toujours une partie qui nous apparaît obscure !!!</li>
+            </ul>
+
+        </section>
+        <section>
+            <h2>Le CSS</h2>
+            <div style="display: flex;justify-content: center">
+                <img src="css/image/grotte.webp">
+            </div>
+        </section>
+
+        <section data-markdown>
+            ### Le gros du problème
+
+            Les effets de bords !!!
+        </section>
+        <section>
+            <h3>CssInJs</h3>
+            <p style="text-align: justify">késako ?</p>
+            <p style="text-align: justify">
+                Déclarer vos éléments de style dans votre code javascript. Votre framework se charge d'inclure dans
+                votre page html le style et de gérer l'isolation de votre style dans vos composants.
+            </p>
+        </section>
+        <section>
+            <h4>Directement par votre framework</h4>
+            <p>Exemple : VueJs</p>
+            <div>
+                <img src="css/image/code-vue.png">
+            </div>
+        </section>
+        <section>
+            <h4>VueJs : le style isolé</h4>
+            <p>Il suffit de rajouter l'attribut <strong>scoped</strong> à la balise style</p>
+            <div>
+                <img src="css/image/code-vue.png">
+            </div>
+        </section>
+        <section>
+            <h4>Les librairies tierces en javascript</h4>
+            <p>
+                Exemple : Jss, Emotion, Styletron, etc...
+            </p>
+            <ol>
+                <li>Définition de votre style sous la forme d'un objet json ou d'une chaîne de caractères.</li>
+                <li>Le framework ajoute vos classes à votre page.</li>
+                <li>Il vous retourne le ou les classes à rajouter dans votre attribut classe.</li>
+            </ol>
+        </section>
+        <section>
+            <h4>Exemple : Emotion</h4>
+            <img src="css/image/emotion.png">
+        </section>
+        <section>
+            <h4>La librairie de composants</h4>
+            <p>
+                Exemple : BaseWeb par Uber
+            </p>
+            <p>
+                Une librairie de composants basé sur React et Styletron pour homogénéiser les applications interne à Uber.
+            </p>
+        </section>
+        <section>
+            <h4>Et maintenant ?</h4>
+            <img src="css/image/crowd.webp">
+        </section>
+        <section data-markdown>
+            #### Dans les +
+
+            **Le style localisé à vos composants**
+
+            Maintenant, vos composants sont portables, réutilisables et encapsules leur propre style !
+        </section>
+        <section data-markdown>
+            #### Dans les +
+
+            **Avoir un style dynamique**
+
+            ```javascript
+            const StyledProfileLabelsContainer = styled(
+            'div',
+            ({$theme}) => ({
+                    marginLeft: $theme.sizing.scale600,
+                    alignSelf: $theme.direction === 'rtl' ? 'flex-end' : 'flex-start',
+                    display: 'flex',
+                    flexDirection: 'column',
+                }),
+            );
+
+            ```
+        </section>
+        <section data-markdown>
+            #### Dans les +
+
+            **Réduction de la taille de vos pages**
+
+            Le code n'inclut uniquement ce qui est utilisé par votre application.
+        </section>
+        <section data-markdown>
+            #### Dans les +
+
+            **Pas d'apprentissage pour vos développeurs avec une méthodologie de nommage + ou - simple.**
+
+            <p>
+                Exemple : OCSS, BEM, etc...
+            </p>
+
+        </section>
+        <section data-markdown>
+            #### Dans les +
+
+            **Les comportements de styles complexes sont plus simples.**
+
+        </section>
+        <section data-markdown>
+            #### Dans les -
+
+            **Le premier rendu dans vos pages est plus importantes**
+
+            <ul>
+                <li>Technique de server rendering.</li>
+            </ul>
+            <p>Exemple : Fusion.js</p>
+        </section>
+        <section data-markdown>
+            #### Dans les -
+
+            **Framework agnostique**
+
+            <ul>
+                <li>Exemple : le partage du style entre vos applications</li>
+            </ul>
+        </section>
+        <section data-markdown>
+            #### Dans les -
+
+            **Framework agnostique**
+
+            <ul>
+                <li>Exemple : le partage du style entre vos applications se fait tout seul avec une feuille de style.</li>
+            </ul>
+        </section>
+        <section data-markdown>
+            #### Dans les -
+
+            **La courbe d'apprentissage de votre librairie CssInJs**
+
+        </section>
+        <section data-markdown>
+            #### Dans les -
+
+            **Le debug devient complexe**
+
+        </section>
+        <section data-markdown>
+            ### En conclusion
+
+
+        </section>
+        <section>
+            Des questions ?
+            <p>Ressources :</p>
+            <ul>
+                <li><a href="https://webdesign.tutsplus.com/articles/an-introduction-to-css-in-js-examples-pros-and-cons--cms-33574">https://webdesign.tutsplus.com/articles/an-introduction-to-css-in-js-examples-pros-and-cons--cms-33574</a></li>
+                <li><a href="https://css-tricks.com/the-differing-perspectives-on-css-in-js/">https://css-tricks.com/the-differing-perspectives-on-css-in-js/</a></li>
+                <li><a href="https://medium.com/free-code-camp/the-tradeoffs-of-css-in-js-bee5cf926fdb">https://medium.com/free-code-camp/the-tradeoffs-of-css-in-js-bee5cf926fdb</a></li>
+                <li>Présentation : <a href="https://github.com/cgenin/presentation-lokijs">https://github.com/cgenin/presentation-lokijs</a>
+                </li>
+            </ul>
+        </section>
+    </div>
+</div>
+
+<script src="js/reveal.js"></script>
+
+<script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+        hash: true,
+
+        // Push each slide change to the browser history. Implies `hash: true`
+        history: true,
+        toolbar: {
+            fullscreen: true,
+            notes: true,
+            pause: true,
+            overview: false,
+            help: false
+        },
+        dependencies: [
+            { src: 'plugin/markdown/marked.js' },
+            { src: 'plugin/markdown/markdown.js' },
+            { src: 'plugin/notes/notes.js', async: true },
+            { src: 'plugin/highlight/highlight.js', async: true },
+            { src: 'node_modules/reveal.js-toolbar/toolbar.js', async: true }
+        ]
+    });
+</script>
+</body>
+</html>
