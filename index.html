@@ -26,7 +26,7 @@
 <div class="reveal">
     <div class="slides">
         <section>
-            <h3>CssinJs vs Css</h3>
+            <h3>Css-in-Js</h3>
             <img src="css/image/gameOfThrones.jpg">
         </section>
         <section>
@@ -43,14 +43,15 @@
                 </div>
             </div>
         </section>
-        <section>
-            <h3>Le coté obscure </h3>
-            <ul>
-                <li>Vous êtes en 2020 développeur FullStack. Vous utilisez des composants Js pour créer vos interfaces
-                    et appeler vos apis.
-                </li>
-                <li>Par contre, il existe toujours une partie qui nous apparaît obscure !!!</li>
-            </ul>
+        <section data-markdown style="text-align: left">
+            ### Le coté obscure
+
+            Vous êtes en 2020 un développeur FullStack.
+
+            Vous utilisez des composants Js pour créer vos interfaces et appeler vos apis.
+
+
+            Par contre, il existe toujours une partie qui nous apparaît obscure !!!
 
         </section>
         <section>
@@ -59,33 +60,20 @@
                 <img src="css/image/grotte.webp">
             </div>
         </section>
-
-        <section data-markdown>
-            ### Le gros du problème
-
-            Les effets de bords !!!
-        </section>
         <section>
-            <h3>CssInJs</h3>
+            <h3>Css-In-Js</h3>
             <p style="text-align: justify">késako ?</p>
             <p style="text-align: justify">
-                Déclarer vos éléments de style dans votre code javascript. Votre framework se charge d'inclure dans
-                votre page html le style et de gérer l'isolation de votre style dans vos composants.
+              Définir votre style dans votre Javascript.
             </p>
+            <ul>
+                <li>Inclusion le style dans votre page html</li>
+                <li>Isolation le style de vos composants entre eux.</li>
+            </ul>
         </section>
         <section>
             <h4>Directement par votre framework</h4>
-            <p>Exemple : VueJs</p>
-            <div>
-                <img src="css/image/code-vue.png">
-            </div>
-        </section>
-        <section>
-            <h4>VueJs : le style isolé</h4>
-            <p>Il suffit de rajouter l'attribut <strong>scoped</strong> à la balise style</p>
-            <div>
-                <img src="css/image/code-vue.png">
-            </div>
+            <p>Exemple avec VueJs</p>
         </section>
         <section>
             <h4>Les librairies tierces en javascript</h4>
@@ -108,7 +96,8 @@
                 Exemple : BaseWeb par Uber
             </p>
             <p>
-                Une librairie de composants basé sur React et Styletron pour homogénéiser les applications interne à Uber.
+                Une librairie de composants basé sur React et Styletron pour homogénéiser les applications interne à
+                Uber.
             </p>
         </section>
         <section>
@@ -131,11 +120,11 @@
             const StyledProfileLabelsContainer = styled(
             'div',
             ({$theme}) => ({
-                    marginLeft: $theme.sizing.scale600,
-                    alignSelf: $theme.direction === 'rtl' ? 'flex-end' : 'flex-start',
-                    display: 'flex',
-                    flexDirection: 'column',
-                }),
+            marginLeft: $theme.sizing.scale600,
+            alignSelf: $theme.direction === 'rtl' ? 'flex-end' : 'flex-start',
+            display: 'flex',
+            flexDirection: 'column',
+            }),
             );
 
             ```
@@ -188,7 +177,8 @@
             **Framework agnostique**
 
             <ul>
-                <li>Exemple : le partage du style entre vos applications se fait tout seul avec une feuille de style.</li>
+                <li>Exemple : le partage du style entre vos applications se fait tout seul avec une feuille de style.
+                </li>
             </ul>
         </section>
         <section data-markdown>
@@ -212,9 +202,13 @@
             Des questions ?
             <p>Ressources :</p>
             <ul>
-                <li><a href="https://webdesign.tutsplus.com/articles/an-introduction-to-css-in-js-examples-pros-and-cons--cms-33574">https://webdesign.tutsplus.com/articles/an-introduction-to-css-in-js-examples-pros-and-cons--cms-33574</a></li>
-                <li><a href="https://css-tricks.com/the-differing-perspectives-on-css-in-js/">https://css-tricks.com/the-differing-perspectives-on-css-in-js/</a></li>
-                <li><a href="https://medium.com/free-code-camp/the-tradeoffs-of-css-in-js-bee5cf926fdb">https://medium.com/free-code-camp/the-tradeoffs-of-css-in-js-bee5cf926fdb</a></li>
+                <li>
+                    <a href="https://webdesign.tutsplus.com/articles/an-introduction-to-css-in-js-examples-pros-and-cons--cms-33574">https://webdesign.tutsplus.com/articles/an-introduction-to-css-in-js-examples-pros-and-cons--cms-33574</a>
+                </li>
+                <li><a href="https://css-tricks.com/the-differing-perspectives-on-css-in-js/">https://css-tricks.com/the-differing-perspectives-on-css-in-js/</a>
+                </li>
+                <li><a href="https://medium.com/free-code-camp/the-tradeoffs-of-css-in-js-bee5cf926fdb">https://medium.com/free-code-camp/the-tradeoffs-of-css-in-js-bee5cf926fdb</a>
+                </li>
                 <li>Présentation : <a href="https://github.com/cgenin/presentation-lokijs">https://github.com/cgenin/presentation-lokijs</a>
                 </li>
             </ul>
@@ -241,11 +235,12 @@
             help: false
         },
         dependencies: [
-            { src: 'plugin/markdown/marked.js' },
-            { src: 'plugin/markdown/markdown.js' },
-            { src: 'plugin/notes/notes.js', async: true },
-            { src: 'plugin/highlight/highlight.js', async: true },
-            { src: 'node_modules/reveal.js-toolbar/toolbar.js', async: true }
+            {src: 'plugin/markdown/marked.js'},
+            {src: 'plugin/markdown/markdown.js'},
+            {src: 'plugin/print-pdf/print-pdf.js'},
+            {src: 'plugin/notes/notes.js', async: true},
+            {src: 'plugin/highlight/highlight.js', async: true},
+            {src: 'node_modules/reveal.js-toolbar/toolbar.js', async: true}
         ]
     });
 </script>
